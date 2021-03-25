@@ -13,6 +13,7 @@
         <module name="springmvc-06-ajax" />
         <module name="springmvc-03-annotation" />
         <module name="springmvc-04-controller" />
+        <module name="springmvc-08-file" />
         <module name="springmvc-01-servlet" />
       </profile>
     </annotationProcessing>

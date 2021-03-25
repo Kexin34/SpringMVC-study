@@ -11,6 +11,11 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+  <h1>首页</h1>
+  <hr>
+  <%--登录--%>
+  <a href="${pageContext.request.contextPath}/user/jumplogin">登录</a>
+  <a href="${pageContext.request.contextPath}/user/jumpSuccess">成功页面</a>
+
   </body>
 </html>

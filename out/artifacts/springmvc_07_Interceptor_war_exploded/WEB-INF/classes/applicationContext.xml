@@ -14,15 +14,6 @@
     <context:component-scan base-package="com.kexin.controller"/>
     <!-- 让Spring MVC不处理静态资源 -->
     <mvc:default-servlet-handler />
-    <!--
-    支持mvc注解驱动
-        在spring中一般采用@RequestMapping注解来完成映射关系
-        要想使@RequestMapping注解生效
-        必须向上下文中注册DefaultAnnotationHandlerMapping
-        和一个AnnotationMethodHandlerAdapter实例
-        这两个实例分别在类级别和方法级别处理。
-        而annotation-driven配置帮助我们自动完成上述两个实例的注入。
-     -->
     <mvc:annotation-driven />
 
     <!-- 视图解析器 -->
@@ -33,5 +24,23 @@
         <!-- 后缀 -->
         <property name="suffix" value=".jsp" />
     </bean>
+
+    <!--关于拦截器的配置-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!--/** 包括路径及其子路径下的所有请求-->
+            <!--/admin/* 拦截的是/admin/add等等这种 , /admin/add/user不会被拦截-->
+            <!--/admin/** 拦截的是/admin/下的所有-->
+            <mvc:mapping path="/**"/>
+            <!--bean配置的就是拦截器-->
+            <bean class="com.kexin.config.MyInterceptor"/>
+        </mvc:interceptor>
+
+        <mvc:interceptor>
+            <mvc:mapping path="/user/**"/>
+            <bean id="loginInterceptor" class="com.kexin.config.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
 
 </beans>

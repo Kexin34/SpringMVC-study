@@ -16,7 +16,7 @@ public class MyInterceptor implements HandlerInterceptor {
         return true;
     }
 
-    //在请求处理方法执行之后执行
+    //在请求处理方法执行之后执行, 拦截日志
     public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,
                            Object o, ModelAndView modelAndView) throws Exception {
         System.out.println("------------处理后------------");
